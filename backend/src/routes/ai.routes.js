@@ -1,11 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const aiController = require("../controllers/ai.controller");
 
-router.get("/get-response", (req, res) => {
-  const prompt = req.query.prompt;
-  if (!prompt) {
-    return res.status(400).send({ error: "Prompt is required" });
-  }
-});
+router.post("/get-review", aiController.getReview);
 
 module.exports = router;
